@@ -1,1 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work Fanatics - Secret Chat</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <!-- Auth Screen -->
+        <div id="auth-screen" class="screen active">
+            <div class="auth-container">
+                <div class="app-header">
+                    <h1>🤫 Work Fanatics</h1>
+                    <p class="tagline">Where secrets vanish in 24 hours...</p>
+                </div>
+                
+                <div class="auth-tabs">
+                    <button class="tab-btn active" data-tab="login">Login</button>
+                    <button class="tab-btn" data-tab="register">Register</button>
+                </div>
 
+                <form id="login-form" class="auth-form active">
+                    <input type="email" id="login-email" placeholder="Email" required>
+                    <input type="password" id="login-password" placeholder="Password" required>
+                    <button type="submit">Enter the Vault</button>
+                </form>
+
+                <form id="register-form" class="auth-form">
+                    <input type="text" id="register-username" placeholder="Username" required>
+                    <input type="text" id="register-displayname" placeholder="Display Name" required>
+                    <input type="email" id="register-email" placeholder="Email" required>
+                    <input type="password" id="register-password" placeholder="Password" required>
+                    <button type="submit">Join the Cult</button>
+                </form>
+
+                <div class="disclaimer">
+                    <p><i class="fas fa-exclamation-triangle"></i> All messages self-destruct after 24 hours</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chat Screen -->
+        <div id="chat-screen" class="screen">
+            <div class="chat-container">
+                <!-- Sidebar -->
+                <div class="sidebar">
+                    <div class="sidebar-header">
+                        <h2>🤫 Work Fanatics</h2>
+                        <div class="user-info">
+                            <span id="current-user-name"></span>
+                            <button id="logout-btn" class="logout-btn">
+                                <i class="fas fa-sign-out-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="users-list">
+                        <h3>Available Fanatics</h3>
+                        <div id="users-container"></div>
+                    </div>
+                </div>
+
+                <!-- Chat Area -->
+                <div class="chat-area">
+                    <div class="chat-header">
+                        <div id="chat-partner-info">
+                            <h3>Select a fanatic to chat with</h3>
+                        </div>
+                        <div class="message-timer">
+                            <i class="fas fa-clock"></i>
+                            <span>24h auto-delete</span>
+                        </div>
+                    </div>
+
+                    <div class="messages-container">
+                        <div id="messages-list" class="messages-list">
+                            <div class="empty-state">
+                                <i class="fas fa-comment-slash"></i>
+                                <p>Select a conversation to start chatting</p>
+                                <small>All messages will be automatically deleted after 24 hours</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="message-input-container">
+                        <form id="message-form">
+                            <input type="text" id="message-input" placeholder="Type your secret message..." disabled>
+                            <button type="submit" disabled>
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="auth.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
