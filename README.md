@@ -4,8 +4,7 @@ Real-time user search in the sidebar
 
 Filters by username and status
 
-👁️ Admin Account
-Preloaded admin user that can see all activity
+
 
 Admin badge in the user list
 
