@@ -328,13 +328,41 @@
             color: var(--gray);
         }
 
-        .users-list {
+        .sidebar-tabs {
+            display: flex;
+            padding: 0 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .sidebar-tab {
+            flex: 1;
+            padding: 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            border-bottom: 2px solid transparent;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--gray);
+        }
+
+        .sidebar-tab.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }
+
+        .users-list, .notice-board {
             flex: 1;
             padding: 15px 0;
             overflow-y: auto;
+            display: none;
         }
 
-        .users-list h3 {
+        .users-list.active, .notice-board.active {
+            display: block;
+        }
+
+        .users-list h3, .notice-board h3 {
             padding: 0 20px 15px;
             font-size: 14px;
             color: var(--gray);
@@ -410,6 +438,271 @@
 
         .status-offline .status-dot {
             background: var(--gray);
+        }
+
+        /* Notice Board Styles */
+        .create-notice {
+            padding: 15px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .create-notice textarea {
+            width: 100%;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            color: var(--light);
+            font-size: 14px;
+            resize: none;
+            height: 80px;
+            margin-bottom: 10px;
+        }
+
+        .create-notice textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .create-notice-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .media-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .media-btn {
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--gray);
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .media-btn:hover {
+            background: rgba(108, 99, 255, 0.2);
+            color: var(--primary);
+        }
+
+        .post-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .post-btn:hover {
+            background: var(--primary-dark);
+        }
+
+        .post-btn:disabled {
+            background: var(--gray);
+            cursor: not-allowed;
+        }
+
+        .notice-item {
+            padding: 15px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
+        }
+
+        .notice-item:hover {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .notice-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .notice-author {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .notice-title {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .notice-date {
+            font-size: 12px;
+            color: var(--gray);
+        }
+
+        .notice-content {
+            font-size: 14px;
+            color: var(--light);
+            line-height: 1.5;
+            margin-bottom: 10px;
+            word-wrap: break-word;
+        }
+
+        .notice-media {
+            margin: 10px 0;
+            border-radius: 10px;
+            overflow: hidden;
+            max-width: 100%;
+        }
+
+        .notice-media img, .notice-media video {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+
+        .notice-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .notice-action {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: var(--gray);
+            font-size: 13px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .notice-action:hover {
+            color: var(--primary);
+        }
+
+        .notice-action.active {
+            color: var(--secondary);
+        }
+
+        .notice-comments {
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .comment {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .comment-avatar {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .comment-content {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 8px 12px;
+            border-radius: 15px;
+            font-size: 13px;
+            flex: 1;
+        }
+
+        .comment-author {
+            font-weight: 600;
+            margin-bottom: 2px;
+            color: var(--primary);
+        }
+
+        .add-comment {
+            display: flex;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .add-comment input {
+            flex: 1;
+            padding: 8px 12px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            color: var(--light);
+            font-size: 13px;
+        }
+
+        .add-comment input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .add-comment button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+
+        .trending-notices {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: rgba(255, 101, 132, 0.1);
+            border-radius: 8px;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+
+        .trending-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .trending-item {
+            font-size: 13px;
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .trending-content {
+            flex: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .trending-stats {
+            color: var(--gray);
+            font-size: 12px;
+            display: flex;
+            gap: 5px;
         }
 
         .chat-area {
@@ -519,6 +812,61 @@
             text-align: left;
         }
 
+        .message-media {
+            margin: 10px 0;
+            border-radius: 10px;
+            overflow: hidden;
+            max-width: 100%;
+        }
+
+        .message-media img, .message-media video {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+
+        .message-file {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+
+        .file-icon {
+            font-size: 20px;
+            color: var(--primary);
+        }
+
+        .file-info {
+            flex: 1;
+        }
+
+        .file-name {
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .file-size {
+            font-size: 12px;
+            color: var(--gray);
+        }
+
+        .download-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+
         .emoji {
             font-size: 18px;
             margin: 0 2px;
@@ -544,7 +892,7 @@
             align-items: flex-end;
         }
 
-        .emoji-picker-btn {
+        .emoji-picker-btn, .file-upload-btn {
             background: rgba(255, 255, 255, 0.08);
             color: var(--gray);
             border: none;
@@ -559,7 +907,7 @@
             font-size: 20px;
         }
 
-        .emoji-picker-btn:hover {
+        .emoji-picker-btn:hover, .file-upload-btn:hover {
             background: rgba(108, 99, 255, 0.2);
             color: var(--primary);
         }
@@ -756,8 +1104,36 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .message {
+        .message, .notice-item {
             animation: fadeIn 0.3s ease;
+        }
+
+        .online-count {
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            margin-left: 8px;
+        }
+
+        .char-count {
+            font-size: 12px;
+            color: var(--gray);
+            text-align: right;
+            margin-top: 5px;
+        }
+
+        .char-count.warning {
+            color: var(--warning);
+        }
+
+        .char-count.error {
+            color: var(--error);
         }
     </style>
 </head>
@@ -800,7 +1176,8 @@
             <form id="register-form" class="auth-form">
                 <div class="form-group">
                     <label for="register-username">Username</label>
-                    <input type="text" id="register-username" placeholder="Choose a username" required>
+                    <input type="text" id="register-username" placeholder="Choose a unique username" required>
+                    <div id="username-feedback" style="font-size: 12px; margin-top: 5px;"></div>
                 </div>
                 <div class="form-group">
                     <label for="register-displayname">Display Name</label>
@@ -853,9 +1230,46 @@
                     </div>
                 </div>
                 
-                <div class="users-list">
+                <div class="sidebar-tabs">
+                    <div class="sidebar-tab active" data-tab="users">
+                        <i class="fas fa-users"></i> Online Users <span id="online-count" class="online-count">0</span>
+                    </div>
+                    <div class="sidebar-tab" data-tab="notices">
+                        <i class="fas fa-bullhorn"></i> Notice Board
+                    </div>
+                </div>
+                
+                <div class="users-list active">
                     <h3>Online Users</h3>
                     <div id="users-container"></div>
+                </div>
+                
+                <div class="notice-board">
+                    <div class="create-notice">
+                        <textarea id="new-notice" placeholder="What's happening? (Max 280 characters)" maxlength="280"></textarea>
+                        <div class="char-count"><span id="notice-char-count">0</span>/280</div>
+                        <div class="create-notice-actions">
+                            <div class="media-buttons">
+                                <button class="media-btn" id="add-image-btn" title="Add Image">
+                                    <i class="fas fa-image"></i>
+                                </button>
+                                <button class="media-btn" id="add-video-btn" title="Add Video">
+                                    <i class="fas fa-video"></i>
+                                </button>
+                            </div>
+                            <button class="post-btn" id="post-notice-btn" disabled>Post</button>
+                        </div>
+                    </div>
+                    
+                    <div class="trending-notices">
+                        <div class="trending-title">
+                            <i class="fas fa-fire"></i> Today's Trending
+                        </div>
+                        <div id="trending-container"></div>
+                    </div>
+                    
+                    <h3>Recent Notices</h3>
+                    <div id="notices-container"></div>
                 </div>
             </div>
 
@@ -955,6 +1369,9 @@
                     </div>
                     
                     <form id="message-form">
+                        <button type="button" id="file-upload-btn" class="file-upload-btn">
+                            <i class="fas fa-paperclip"></i>
+                        </button>
                         <button type="button" id="emoji-picker-btn" class="emoji-picker-btn">
                             <i class="far fa-smile"></i>
                         </button>
@@ -977,6 +1394,7 @@
             constructor() {
                 this.users = JSON.parse(localStorage.getItem('wf_users')) || [];
                 this.messages = JSON.parse(localStorage.getItem('wf_messages')) || [];
+                this.notices = JSON.parse(localStorage.getItem('wf_notices')) || [];
                 this.currentUser = null;
                 this.socket = null;
                 this.adminUser = {
@@ -1000,6 +1418,7 @@
                 
                 this.setupMockData();
                 this.startCleanupJob();
+                this.startUserStatusUpdate();
                 console.log('🤫 Work Fanatics Backend Started');
             }
 
@@ -1014,8 +1433,51 @@
                         { id: '5', username: 'deadline_hunter', displayName: 'Deadline Hunter', email: 'user5@work.com', password: '12345678', isOnline: false, lastSeen: new Date(Date.now() - 30 * 60 * 1000) }
                     ];
                     this.users = [...this.users, ...demoUsers];
-                    this.saveData();
                 }
+                
+                // Add sample notices if none exist
+                if (this.notices.length === 0) {
+                    const sampleNotices = [
+                        {
+                            id: '1',
+                            authorId: 'admin',
+                            author: 'System Admin',
+                            content: 'Welcome to Work Fanatics! This is a secure chat platform where all messages are automatically deleted after 24 hours. Enjoy your conversations!',
+                            date: new Date(),
+                            likes: 5,
+                            comments: [
+                                { id: '1', authorId: '1', author: 'Office Warrior', content: 'Great platform!', date: new Date() },
+                                { id: '2', authorId: '2', author: 'Code Crusader', content: 'Love the 24h auto-delete feature!', date: new Date() }
+                            ],
+                            media: null
+                        },
+                        {
+                            id: '2',
+                            authorId: '1',
+                            author: 'Office Warrior',
+                            content: 'Reminder: Our weekly team meeting is scheduled for Friday at 2:00 PM. Please come prepared with your updates.',
+                            date: new Date(Date.now() - 2 * 60 * 60 * 1000),
+                            likes: 3,
+                            comments: [
+                                { id: '3', authorId: '4', author: 'Project Ninja', content: 'Will do!', date: new Date() }
+                            ],
+                            media: null
+                        },
+                        {
+                            id: '3',
+                            authorId: 'admin',
+                            author: 'System Admin',
+                            content: "We've added fun stickers and emojis to make your conversations more expressive. Try them out!",
+                            date: new Date(Date.now() - 5 * 60 * 60 * 1000),
+                            likes: 8,
+                            comments: [],
+                            media: null
+                        }
+                    ];
+                    this.notices = sampleNotices;
+                }
+                
+                this.saveData();
             }
 
             // Simulate server API
@@ -1100,6 +1562,81 @@
                 });
             }
 
+            async getNotices() {
+                return new Promise((resolve) => {
+                    setTimeout(() => {
+                        // Sort notices by date (newest first)
+                        const sortedNotices = [...this.notices].sort((a, b) => new Date(b.date) - new Date(a.date));
+                        resolve({
+                            status: 'success',
+                            data: { notices: sortedNotices }
+                        });
+                    }, 500);
+                });
+            }
+
+            async createNotice(noticeData) {
+                return new Promise((resolve) => {
+                    setTimeout(() => {
+                        const notice = {
+                            id: Date.now().toString(),
+                            ...noticeData,
+                            date: new Date(),
+                            likes: 0,
+                            comments: [],
+                            media: noticeData.media || null
+                        };
+
+                        this.notices.push(notice);
+                        this.saveData();
+
+                        resolve({
+                            status: 'success',
+                            data: { notice }
+                        });
+                    }, 500);
+                });
+            }
+
+            async likeNotice(noticeId, userId) {
+                return new Promise((resolve) => {
+                    setTimeout(() => {
+                        const notice = this.notices.find(n => n.id === noticeId);
+                        if (notice) {
+                            notice.likes += 1;
+                            this.saveData();
+                        }
+                        
+                        resolve({
+                            status: 'success',
+                            data: { notice }
+                        });
+                    }, 300);
+                });
+            }
+
+            async addComment(noticeId, commentData) {
+                return new Promise((resolve) => {
+                    setTimeout(() => {
+                        const notice = this.notices.find(n => n.id === noticeId);
+                        if (notice) {
+                            const comment = {
+                                id: Date.now().toString(),
+                                ...commentData,
+                                date: new Date()
+                            };
+                            notice.comments.push(comment);
+                            this.saveData();
+                        }
+                        
+                        resolve({
+                            status: 'success',
+                            data: { notice }
+                        });
+                    }, 300);
+                });
+            }
+
             async getMessages(userId, currentUserId) {
                 return new Promise((resolve) => {
                     setTimeout(() => {
@@ -1171,6 +1708,7 @@
             saveData() {
                 localStorage.setItem('wf_users', JSON.stringify(this.users));
                 localStorage.setItem('wf_messages', JSON.stringify(this.messages));
+                localStorage.setItem('wf_notices', JSON.stringify(this.notices));
             }
 
             startCleanupJob() {
@@ -1188,6 +1726,38 @@
                         console.log(`Cleaned up ${initialLength - this.messages.length} expired messages`);
                     }
                 }, 60000); // Every minute
+            }
+
+            startUserStatusUpdate() {
+                // Simulate users going online/offline
+                setInterval(() => {
+                    this.users.forEach(user => {
+                        if (user.id !== this.currentUser?.id && Math.random() > 0.7) {
+                            user.isOnline = !user.isOnline;
+                            user.lastSeen = new Date();
+                        }
+                    });
+                    this.saveData();
+                    
+                    // Notify frontend of status changes
+                    if (this.socket && this.socket.listeners['user-status-update']) {
+                        this.socket.listeners['user-status-update'](this.users);
+                    }
+                }, 10000); // Every 10 seconds
+            }
+
+            getTrendingNotices() {
+                // Get today's notices and sort by engagement (likes + comments)
+                const today = new Date();
+                today.setHours(0, 0, 0, 0);
+                
+                const todayNotices = this.notices.filter(notice => 
+                    new Date(notice.date) >= today
+                );
+                
+                return todayNotices
+                    .sort((a, b) => (b.likes + b.comments.length) - (a.likes + a.comments.length))
+                    .slice(0, 3);
             }
         }
 
@@ -1261,6 +1831,11 @@
                 document.getElementById('register-password').addEventListener('input', (e) => {
                     this.updatePasswordStrength(e.target.value);
                 });
+
+                // Username uniqueness check
+                document.getElementById('register-username').addEventListener('input', (e) => {
+                    this.checkUsernameUniqueness(e.target.value);
+                });
             }
 
             updatePasswordStrength(password) {
@@ -1282,6 +1857,24 @@
                 strengthBar.classList.add(strength);
             }
 
+            checkUsernameUniqueness(username) {
+                const feedback = document.getElementById('username-feedback');
+                if (!username) {
+                    feedback.textContent = '';
+                    feedback.style.color = '';
+                    return;
+                }
+
+                const existingUser = this.backend.users.find(u => u.username === username);
+                if (existingUser) {
+                    feedback.textContent = 'Username already taken';
+                    feedback.style.color = 'var(--error)';
+                } else {
+                    feedback.textContent = 'Username available';
+                    feedback.style.color = 'var(--success)';
+                }
+            }
+
             switchTab(tab) {
                 // Update active tab buttons
                 document.querySelectorAll('.tab-btn').forEach(btn => {
@@ -1294,6 +1887,12 @@
                     form.classList.remove('active');
                 });
                 document.getElementById(`${tab}-form`).classList.add('active');
+
+                // Clear login form when switching to register
+                if (tab === 'register') {
+                    document.getElementById('login-email').value = '';
+                    document.getElementById('login-password').value = '';
+                }
             }
 
             async handleLogin() {
@@ -1324,6 +1923,13 @@
                 const password = document.getElementById('register-password').value;
                 const button = document.querySelector('#register-form button');
 
+                // Check if username is unique
+                const existingUser = this.backend.users.find(u => u.username === username);
+                if (existingUser) {
+                    alert('Username already taken. Please choose a different one.');
+                    return;
+                }
+
                 // Show loading state
                 const originalText = button.textContent;
                 button.textContent = 'Creating Account...';
@@ -1343,6 +1949,7 @@
             handleAuthSuccess(token, user) {
                 this.token = token;
                 this.currentUser = user;
+                this.backend.currentUser = user;
 
                 localStorage.setItem('workFanaticsToken', token);
                 localStorage.setItem('workFanaticsUser', JSON.stringify(user));
@@ -1355,6 +1962,7 @@
                     const user = this.backend.verifyToken(this.token);
                     if (user) {
                         this.currentUser = user;
+                        this.backend.currentUser = user;
                         this.showChatScreen();
                         return;
                     }
@@ -1378,10 +1986,22 @@
             }
 
             logout() {
+                if (this.currentUser) {
+                    this.currentUser.isOnline = false;
+                    this.currentUser.lastSeen = new Date();
+                    this.backend.saveData();
+                }
+                
                 this.token = null;
                 this.currentUser = null;
+                this.backend.currentUser = null;
                 localStorage.removeItem('workFanaticsToken');
                 localStorage.removeItem('workFanaticsUser');
+                
+                // Clear login form
+                document.getElementById('login-email').value = '';
+                document.getElementById('login-password').value = '';
+                
                 this.showAuthScreen();
             }
 
@@ -1426,11 +2046,17 @@
                 
                 this.initializeSocket();
                 this.loadUsers();
+                this.loadNotices();
+                this.loadTrendingNotices();
             }
 
             initializeSocket() {
                 this.socket.on('receive-message', (data) => {
                     this.displayMessage(data);
+                });
+                
+                this.socket.on('user-status-update', (users) => {
+                    this.updateUserStatuses(users);
                 });
             }
 
@@ -1456,6 +2082,11 @@
                     this.toggleStickerPicker();
                 });
 
+                // File upload
+                document.getElementById('file-upload-btn').addEventListener('click', () => {
+                    this.simulateFileUpload();
+                });
+
                 // Close pickers when clicking outside
                 document.addEventListener('click', (e) => {
                     if (!e.target.closest('#emoji-picker') && !e.target.closest('#emoji-picker-btn')) {
@@ -1469,6 +2100,23 @@
                 // User search
                 document.getElementById('user-search').addEventListener('input', (e) => {
                     this.filterUsers(e.target.value);
+                });
+
+                // Sidebar tabs
+                document.querySelectorAll('.sidebar-tab').forEach(tab => {
+                    tab.addEventListener('click', (e) => {
+                        const tabName = e.currentTarget.getAttribute('data-tab');
+                        this.switchSidebarTab(tabName);
+                    });
+                });
+
+                // Notice creation
+                document.getElementById('new-notice').addEventListener('input', (e) => {
+                    this.updateNoticeCharCount(e.target.value);
+                });
+
+                document.getElementById('post-notice-btn').addEventListener('click', () => {
+                    this.createNotice();
                 });
 
                 // Emoji selection
@@ -1486,6 +2134,37 @@
                         this.hideStickerPicker();
                     });
                 });
+            }
+
+            switchSidebarTab(tabName) {
+                // Update active tab
+                document.querySelectorAll('.sidebar-tab').forEach(tab => {
+                    tab.classList.remove('active');
+                });
+                document.querySelector(`[data-tab="${tabName}"]`).classList.add('active');
+
+                // Show corresponding content
+                document.querySelectorAll('.users-list, .notice-board').forEach(content => {
+                    content.classList.remove('active');
+                });
+                document.querySelector(`.${tabName === 'users' ? 'users-list' : 'notice-board'}`).classList.add('active');
+            }
+
+            updateNoticeCharCount(text) {
+                const charCount = document.getElementById('notice-char-count');
+                charCount.textContent = text.length;
+                
+                // Update character count color
+                if (text.length > 250) {
+                    charCount.parentElement.className = 'char-count error';
+                } else if (text.length > 200) {
+                    charCount.parentElement.className = 'char-count warning';
+                } else {
+                    charCount.parentElement.className = 'char-count';
+                }
+                
+                // Enable/disable post button
+                document.getElementById('post-notice-btn').disabled = text.length === 0 || text.length > 280;
             }
 
             toggleEmojiPicker() {
@@ -1532,6 +2211,59 @@
                 messageInput.focus();
             }
 
+            simulateFileUpload() {
+                // In a real app, this would open a file dialog
+                // For demo purposes, we'll simulate file upload
+                const fileTypes = ['document', 'image', 'video'];
+                const fileType = fileTypes[Math.floor(Math.random() * fileTypes.length)];
+                
+                let fileName, fileSize, fileIcon;
+                
+                switch(fileType) {
+                    case 'document':
+                        fileName = 'project_document.pdf';
+                        fileSize = '2.4 MB';
+                        fileIcon = 'fas fa-file-pdf';
+                        break;
+                    case 'image':
+                        fileName = 'screenshot.png';
+                        fileSize = '1.2 MB';
+                        fileIcon = 'fas fa-file-image';
+                        break;
+                    case 'video':
+                        fileName = 'demo_video.mp4';
+                        fileSize = '15.7 MB';
+                        fileIcon = 'fas fa-file-video';
+                        break;
+                }
+                
+                if (this.currentChatUser) {
+                    this.sendFileMessage(fileName, fileSize, fileIcon);
+                } else {
+                    alert('Please select a user to send files to');
+                }
+            }
+
+            async sendFileMessage(fileName, fileSize, fileIcon) {
+                try {
+                    const data = await this.backend.sendMessage({
+                        sender: this.currentUser.id,
+                        receiver: this.currentChatUser.id,
+                        content: `Shared a file: ${fileName}`,
+                        file: {
+                            name: fileName,
+                            size: fileSize,
+                            icon: fileIcon
+                        }
+                    });
+
+                    // Display the file message immediately
+                    this.displayMessage(data.data.message);
+                } catch (error) {
+                    console.error('Error sending file message:', error);
+                }
+            }
+
             async sendSticker(sticker) {
                 if (!this.currentChatUser) return;
 
@@ -1550,6 +2282,53 @@
                 }
             }
 
+            async createNotice() {
+                const content = document.getElementById('new-notice').value.trim();
+                if (!content) return;
+
+                try {
+                    const data = await this.backend.createNotice({
+                        authorId: this.currentUser.id,
+                        author: this.currentUser.displayName,
+                        content: content
+                    });
+
+                    // Clear the input
+                    document.getElementById('new-notice').value = '';
+                    this.updateNoticeCharCount('');
+                    
+                    // Reload notices
+                    this.loadNotices();
+                    this.loadTrendingNotices();
+                } catch (error) {
+                    console.error('Error creating notice:', error);
+                }
+            }
+
+            async likeNotice(noticeId) {
+                try {
+                    const data = await this.backend.likeNotice(noticeId, this.currentUser.id);
+                    this.loadNotices();
+                    this.loadTrendingNotices();
+                } catch (error) {
+                    console.error('Error liking notice:', error);
+                }
+            }
+
+            async addComment(noticeId, content) {
+                try {
+                    const data = await this.backend.addComment(noticeId, {
+                        authorId: this.currentUser.id,
+                        author: this.currentUser.displayName,
+                        content: content
+                    });
+                    this.loadNotices();
+                    this.loadTrendingNotices();
+                } catch (error) {
+                    console.error('Error adding comment:', error);
+                }
+            }
+
             async loadUsers() {
                 try {
                     const data = await this.backend.getUsers(this.currentUser.id);
@@ -1557,6 +2336,20 @@
                 } catch (error) {
                     console.error('Error loading users:', error);
                 }
+            }
+
+            async loadNotices() {
+                try {
+                    const data = await this.backend.getNotices();
+                    this.displayNotices(data.data.notices);
+                } catch (error) {
+                    console.error('Error loading notices:', error);
+                }
+            }
+
+            loadTrendingNotices() {
+                const trendingNotices = this.backend.getTrendingNotices();
+                this.displayTrendingNotices(trendingNotices);
             }
 
             displayUsers(users) {
@@ -1570,6 +2363,9 @@
                 const onlineUsers = otherUsers.filter(user => user.isOnline);
                 const offlineUsers = otherUsers.filter(user => !user.isOnline);
 
+                // Update online count
+                document.getElementById('online-count').textContent = onlineUsers.length;
+
                 // Display online users first
                 onlineUsers.forEach(user => {
                     this.createUserElement(user, container, true);
@@ -1579,6 +2375,162 @@
                 offlineUsers.forEach(user => {
                     this.createUserElement(user, container, false);
                 });
+            }
+
+            displayNotices(notices) {
+                const container = document.getElementById('notices-container');
+                container.innerHTML = '';
+
+                if (notices.length === 0) {
+                    container.innerHTML = '<div class="empty-state"><p>No notices yet. Be the first to post!</p></div>';
+                    return;
+                }
+
+                notices.forEach(notice => {
+                    this.createNoticeElement(notice, container);
+                });
+            }
+
+            displayTrendingNotices(notices) {
+                const container = document.getElementById('trending-container');
+                container.innerHTML = '';
+
+                if (notices.length === 0) {
+                    container.innerHTML = '<div style="font-size: 12px; color: var(--gray);">No trending notices today</div>';
+                    return;
+                }
+
+                notices.forEach(notice => {
+                    const trendingItem = document.createElement('div');
+                    trendingItem.className = 'trending-item';
+                    
+                    const engagement = notice.likes + notice.comments.length;
+                    
+                    trendingItem.innerHTML = `
+                        <div class="trending-content">${notice.content.substring(0, 40)}${notice.content.length > 40 ? '...' : ''}</div>
+                        <div class="trending-stats">
+                            <span>${engagement}</span>
+                            <i class="fas fa-fire"></i>
+                        </div>
+                    `;
+                    
+                    container.appendChild(trendingItem);
+                });
+            }
+
+            createNoticeElement(notice, container) {
+                const noticeElement = document.createElement('div');
+                noticeElement.className = 'notice-item';
+                noticeElement.dataset.noticeId = notice.id;
+                
+                const noticeDate = new Date(notice.date);
+                const formattedDate = noticeDate.toLocaleDateString() + ' ' + noticeDate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+                
+                noticeElement.innerHTML = `
+                    <div class="notice-header">
+                        <div class="notice-author">
+                            <div class="user-avatar-sm">${notice.author.split(' ').map(n => n[0]).join('').toUpperCase()}</div>
+                            <div>
+                                <div class="notice-title">${notice.author}</div>
+                                <div class="notice-date">${formattedDate}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="notice-content">${notice.content}</div>
+                    ${notice.media ? `<div class="notice-media">${notice.media}</div>` : ''}
+                    <div class="notice-actions">
+                        <div class="notice-action ${notice.likes > 0 ? 'active' : ''}" data-action="like">
+                            <i class="fas fa-heart"></i>
+                            <span>${notice.likes}</span>
+                        </div>
+                        <div class="notice-action" data-action="comment">
+                            <i class="fas fa-comment"></i>
+                            <span>${notice.comments.length}</span>
+                        </div>
+                        <div class="notice-action" data-action="repost">
+                            <i class="fas fa-retweet"></i>
+                            <span>0</span>
+                        </div>
+                    </div>
+                    ${notice.comments.length > 0 ? `
+                        <div class="notice-comments">
+                            ${notice.comments.map(comment => `
+                                <div class="comment">
+                                    <div class="comment-avatar">${comment.author.split(' ').map(n => n[0]).join('').toUpperCase()}</div>
+                                    <div class="comment-content">
+                                        <div class="comment-author">${comment.author}</div>
+                                        <div>${comment.content}</div>
+                                    </div>
+                                </div>
+                            `).join('')}
+                            <div class="add-comment">
+                                <input type="text" placeholder="Add a comment..." class="comment-input">
+                                <button class="comment-submit"><i class="fas fa-paper-plane"></i></button>
+                            </div>
+                        </div>
+                    ` : `
+                        <div class="notice-comments" style="display: none;">
+                            <div class="add-comment">
+                                <input type="text" placeholder="Add a comment..." class="comment-input">
+                                <button class="comment-submit"><i class="fas fa-paper-plane"></i></button>
+                            </div>
+                        </div>
+                    `}
+                `;
+                
+                // Add event listeners
+                const likeBtn = noticeElement.querySelector('[data-action="like"]');
+                const commentBtn = noticeElement.querySelector('[data-action="comment"]');
+                const commentInput = noticeElement.querySelector('.comment-input');
+                const commentSubmit = noticeElement.querySelector('.comment-submit');
+                const commentsSection = noticeElement.querySelector('.notice-comments');
+                
+                likeBtn.addEventListener('click', () => {
+                    this.likeNotice(notice.id);
+                });
+                
+                commentBtn.addEventListener('click', () => {
+                    commentsSection.style.display = commentsSection.style.display === 'none' ? 'block' : 'none';
+                });
+                
+                commentSubmit.addEventListener('click', () => {
+                    const content = commentInput.value.trim();
+                    if (content) {
+                        this.addComment(notice.id, content);
+                        commentInput.value = '';
+                    }
+                });
+                
+                commentInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        const content = commentInput.value.trim();
+                        if (content) {
+                            this.addComment(notice.id, content);
+                            commentInput.value = '';
+                        }
+                    }
+                });
+                
+                container.appendChild(noticeElement);
+            }
+
+            updateUserStatuses(users) {
+                this.displayUsers(users);
+                
+                // If we're currently chatting with a user who went offline/online, update the header
+                if (this.currentChatUser) {
+                    const updatedUser = users.find(u => u.id === this.currentChatUser.id);
+                    if (updatedUser) {
+                        const statusElement = document.querySelector('.chat-partner .user-status');
+                        if (statusElement) {
+                            statusElement.className = `user-status ${updatedUser.isOnline ? 'status-online' : 'status-offline'}`;
+                            statusElement.innerHTML = `
+                                <span class="status-dot"></span>
+                                <span>${updatedUser.isOnline ? 'Online' : `Last seen ${this.getTimeAgo(new Date(updatedUser.lastSeen))}`}</span>
+                            `;
+                        }
+                    }
+                }
             }
 
             createUserElement(user, container, isOnline) {
@@ -1635,7 +2587,10 @@
                         <div class="user-avatar-sm">${user.displayName.split(' ').map(n => n[0]).join('').toUpperCase()}</div>
                         <div>
                             <h3>${user.displayName}</h3>
-                            <small>@${user.username} ${user.isAdmin ? '(Admin)' : ''}</small>
+                            <div class="user-status ${user.isOnline ? 'status-online' : 'status-offline'}">
+                                <span class="status-dot"></span>
+                                <span>${user.isOnline ? 'Online' : `Last seen ${this.getTimeAgo(new Date(user.lastSeen))}`}</span>
+                            </div>
                         </div>
                     </div>
                 `;
@@ -1707,6 +2662,29 @@
                             </div>
                             <div class="message-bubble">
                                 <div class="sticker">${message.content}</div>
+                                <div class="message-time">${new Date(message.createdAt).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</div>
+                            </div>
+                        `;
+                    } else if (message.file) {
+                        messageElement.innerHTML = `
+                            <div class="message-header">
+                                ${message.sender.id === this.currentUser.id ? 'You' : message.sender.displayName}
+                                <span>• ${timeAgo}</span>
+                            </div>
+                            <div class="message-bubble">
+                                <div class="message-content">${message.content}</div>
+                                <div class="message-file">
+                                    <div class="file-icon">
+                                        <i class="${message.file.icon}"></i>
+                                    </div>
+                                    <div class="file-info">
+                                        <div class="file-name">${message.file.name}</div>
+                                        <div class="file-size">${message.file.size}</div>
+                                    </div>
+                                    <button class="download-btn">
+                                        <i class="fas fa-download"></i>
+                                    </button>
+                                </div>
                                 <div class="message-time">${new Date(message.createdAt).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</div>
                             </div>
                         `;
